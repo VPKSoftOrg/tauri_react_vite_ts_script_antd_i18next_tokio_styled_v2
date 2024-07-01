@@ -20,7 +20,7 @@
         "@tauri-apps/plugin-shell": "^2.0.0-beta.6",
         "@tauri-apps/plugin-updater": "^2.0.0-beta.5",
         "@tauri-apps/plugin-window-state": "github:tauri-apps/tauri-plugin-window-state#v2",
-        "antd": "^5.18.3",
+        "antd": "^5.19.0",
         "classnames": "^2.5.1",
         "i18next": "^23.11.5",
         "react": "^18.3.1",
