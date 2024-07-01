@@ -1,0 +1,40 @@
+{
+    "build": {
+        "beforeDevCommand": "npm run dev",
+        "beforeBuildCommand": "npm run build",
+        "frontendDist": "../dist",
+        "devUrl": "http://localhost:1420"
+    },
+    "bundle": {
+        "active": true,
+        "targets": "all",
+        "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
+    },
+    "productName": "TauriTemplate",
+    "version": "0.0.0",
+    "identifier": "TauriReactViteTypescriptAntdI18next",
+    "plugins": {
+        "updater": {
+            "active": true,
+            "endpoints": ["https://github.com/YourAccount/YourProject/releases/latest/download/latest.json"],
+            "dialog": false,
+            "pubkey": "Y2hhbmdpbmdyaHl0aG1pbmR1c3RyaWFsZmV3dGVybWNvbWZvcnRhYmxlY29tbXVuaXR5ZGlmZmljdWx0eWJldHN0dWNrc2hhbGxlbGVwaGFudHNvbGRpZXJ0YXNraW5zdGFuY2VkZWdyZWVkcmllZHByb3Blcmx5YnVyc3RhZHVsdHNoYWRvd2NlbGxyZXN1bHRiZXR3ZWVuanVzdG9wcG9ydHVuaXR5dGFsa2Nob3Nlb3VnaHR3ZWxsZmVhdHVyZW9yYml0cnViYmVybmV3bGFzdGZhcm1sYXJnZXJyYXRoZXJiZWxvd2hlaWdodHJvd3RoZW5tb25rZXlpbnRyb2R1Y2VkdGhvdWdoaGl0cGVyaW52ZW50ZWRzdHJpa2VzdWNjZXNzbWlsaXRhcnl0aGVvcnl3ZXRwaWNrc3Rvb2RhdXRob3Jjb21tYW5kcGxlYXNlY3Jvd2Rmb290c2VhcmNodGh1c3RlYXNpbmd2ZXNzZWxzc3R1ZGVudHRyaWNrZnJpZ2h0ZW5zZW50YXVkaWVuY2VlZmZlY3RzdHJpcGRpdmlzaW9uZXhjaXRlZGludGVyaW9yaG9wZXNhd2Nsb3RoZXNzdXJmYWNlZm9yZXN0cmlkZWNoYW1iZXJhY2NvcmRpbmdzb2xkYmVuZHJhY2VzcGlubnVtYmVybW9yZXZvdGVsb3dlcnN1cHBlcmRldGFpbGxvYWRob3JzZWFydHlvdXJhZmZlY3RnbG9iZW5laWdoYm9yaG9vZG5hdGl2ZXRyYWlsYWN0aXZpdHlwcmFjdGljYWxjb25ncmVzc25vbmVmZXdlcm1pc3NpbmdmaXJlcHJvZ3Jlc3N0b3dub25seWh1cnJpZWRnb29zZWNsZWFubG9jYWxzaGFrZXZvaWNlaGlzdG9yeW9yYml0ZW5vdWdobWlzc2lvbm9yZGluYXJ5amFyc2VuZHdvcnRoYmVuZG1pbnV0ZXBpZ21hY2hpbmVyeXdpbnRlcmJhZGx5c2hhbGxvd3JvY2tjb3VudHZhcG9yZXZlbmluZ3Nob3dtb250aGNvdXJhZ2VkaXZpc2lvbnBocmFzZXBvb3JnYW1lZ29lc3JpZGVzb21lb2ZmaW5kZXBlbmRlbnR2ZXJiYnVpbGRpbmdjaGFuY2VkZWVwZHVyaW5nZGlydGhlbHBpbXBvcnRhbnR0b21vcnJvd2VxdWlwbWVudGhhdmluZ2xpZnRzaGVlcHBhZ2V2YWx1ZXNsZXB0cm91Z2h3ZWxjb21lY29tcGFueXN1cHBseXB1YmxpY2hlcnNhaWRyb2NrbWFkZWFueWJvZHl0YXhvY2VhbnBsYW5uZWRpbnN0ZWFkdG90YWxldmVyeXdoZXJlZWF0aWxsYW50c29jY3VyY292ZXJzdG9yZXNoYWtlcHJlcGFyZW1pbGVjYXRjbGFzc291cnNlbHZlc2hhcmJvcmNoaWxkZmxvYXRpbmdoZWlnaHRwZXJmZWN0bHlvbGRlc3Rjb2F0cGVhY2ViaXJkc2RheW51bWVyYWxyYWluZW1wdHlvZmZmb3JjZWZsb3dlcmJlYW5ub29ucmVjb3JkYXBwcm9wcmlhdGVwYXJr",
+            "windows": {
+                "installMode": "passive"
+            }
+        }
+    },
+    "app": {
+        "security": {
+            "csp": null
+        },
+        "windows": [
+            {
+                "title": "TauriTemplate",
+                "width": 800,
+                "height": 600,
+                "decorations": false
+            }
+        ]
+    }
+}
