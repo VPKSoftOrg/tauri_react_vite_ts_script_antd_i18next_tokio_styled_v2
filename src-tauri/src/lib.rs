@@ -1,23 +1,11 @@
 use config::{get_app_config, set_app_config, AppConfig};
-use rust_i18n::t;
+
 mod config;
-
-#[macro_use]
-extern crate rust_i18n;
-
-i18n!();
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
-    let msg = t!("messages.updateCheckFailedFile", error = name).into_owned();
-    msg
-    // format!("Hello, {}! You've been greeted from Rust!", name)
-}
-
-fn my_error(file_name: &str) -> String {
-    let msg = t!("messages.updateCheckFailedFile", error = file_name).into_owned();
-    msg
+    format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
 #[tokio::main]
