@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled } from "styled-components";
 import classNames from "classnames";
-import { getCurrent } from "@tauri-apps/api/window";
+import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { CommonProps } from "../Types";
 import { AppIcon } from "../../utilities/app/Images";
 
@@ -67,7 +67,7 @@ const WindowTitle = ({
     onUserInteraction,
 }: WindowTitleProps) => {
     const appWindow = React.useMemo(() => {
-        return getCurrent();
+        return getCurrentWebviewWindow();
     }, []);
 
     const minimizeClick = React.useCallback(() => {

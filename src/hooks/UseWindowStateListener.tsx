@@ -23,7 +23,7 @@ SOFTWARE.
 */
 
 import * as React from "react";
-import { getCurrent } from "@tauri-apps/api/window";
+import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { EventCallback, TauriEvent, UnlistenFn } from "@tauri-apps/api/event";
 import { StateFlags, restoreStateCurrent, saveWindowState } from "@tauri-apps/plugin-window-state";
 
@@ -34,7 +34,7 @@ import { StateFlags, restoreStateCurrent, saveWindowState } from "@tauri-apps/pl
  * @param {() => void} callback - The function to be called when the event is triggered.
  */
 const useWindowEventListener = (event: TauriEvent, callback: () => void) => {
-    const appWindow = React.useMemo(() => getCurrent(), []);
+    const appWindow = React.useMemo(() => getCurrentWebviewWindow(), []);
 
     const windowEventCallback: EventCallback<unknown> = React.useCallback(() => {
         callback();
