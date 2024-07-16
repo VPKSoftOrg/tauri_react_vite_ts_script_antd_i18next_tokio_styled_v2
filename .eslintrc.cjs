@@ -9,7 +9,7 @@ module.exports = {
         "plugin:import/warnings",
     ],
     parser: "@typescript-eslint/parser",
-    ignorePatterns: [".eslintrc.cjs"],
+    ignorePatterns: [".eslintrc.cjs", "src/localization/rust_i18n_transform"],
     parserOptions: {
         sourceType: "module",
         ecmaVersion: 2_020,
