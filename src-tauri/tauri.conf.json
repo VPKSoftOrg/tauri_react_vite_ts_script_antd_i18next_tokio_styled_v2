@@ -1,40 +1,46 @@
 {
-    "build": {
-        "beforeDevCommand": "npm run dev",
-        "beforeBuildCommand": "npm run build",
-        "frontendDist": "../dist",
-        "devUrl": "http://localhost:1420"
-    },
-    "bundle": {
-        "active": true,
-        "targets": "all",
-        "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
-    },
-    "productName": "TauriTemplate",
-    "version": "0.0.0",
-    "identifier": "TauriReactViteTypescriptAntdI18next",
-    "plugins": {
-        "updater": {
-            "active": true,
-            "endpoints": ["https://github.com/YourAccount/YourProject/releases/latest/download/latest.json"],
-            "dialog": false,
-            "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDk5OTJGNzcwODZBOEQ2RkMKUldUODFxaUdjUGVTbVpaTGgrcmFFRW1tTnMzdGp2c0Q2VlMxaCs2Qzl4elpaYlhKNGNzZGttdHgK",
-            "windows": {
-                "installMode": "passive"
-            }
-        }
-    },
-    "app": {
-        "security": {
-            "csp": null
-        },
-        "windows": [
-            {
-                "title": "TauriTemplate",
-                "width": 800,
-                "height": 600,
-                "decorations": false
-            }
-        ]
+  "productName": "TauriTemplate",
+  "version": "0.0.0",
+  "identifier": "Tauri.React.Vite.Typescript.antd.i18next",  
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "TauriTemplate",
+        "width": 800,
+        "height": 600,
+        "decorations": false
+      }
+    ],      
+    "security": {
+        "csp": null
     }
+  },
+  "plugins": {
+    "updater": {
+      "active": true,
+      "endpoints": ["https://github.com/YourAccount/YourProject/releases/latest/download/latest.json"],
+      "dialog": false,
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDk5OTJGNzcwODZBOEQ2RkMKUldUODFxaUdjUGVTbVpaTGgrcmFFRW1tTnMzdGp2c0Q2VlMxaCs2Qzl4elpaYlhKNGNzZGttdHgK",
+      "windows": {
+          "installMode": "passive"
+      }
+    }
+  },    
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }    
 }
