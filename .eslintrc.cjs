@@ -9,7 +9,7 @@ module.exports = {
         "plugin:import/warnings",
     ],
     parser: "@typescript-eslint/parser",
-    ignorePatterns: [".eslintrc.cjs", "src/localization/rust_i18n_transform"],
+    ignorePatterns: [".eslintrc.cjs", "src/localization/rust_i18n_transform", "vite.config.ts"],
     parserOptions: {
         sourceType: "module",
         ecmaVersion: 2_020,

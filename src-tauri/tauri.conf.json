@@ -1,7 +1,7 @@
 {
   "productName": "TauriTemplate",
   "version": "0.0.0",
-  "identifier": "TauriReactViteTypescriptAntdI18next",  
+  "identifier": "Tauri.React.Vite.Typescript.antd.i18next",  
   "build": {
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
