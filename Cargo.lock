@@ -3369,23 +3369,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "tauri-app"
-version = "0.0.0"
-dependencies = [
- "confy",
- "serde",
- "serde_derive",
- "serde_json",
- "tauri",
- "tauri-build",
- "tauri-plugin-process",
- "tauri-plugin-shell",
- "tauri-plugin-updater",
- "tauri-plugin-window-state",
- "tokio",
-]
-
-[[package]]
 name = "tauri-build"
 version = "2.0.0-beta.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3626,6 +3609,23 @@ checksum = "5993dc129e544393574288923d1ec447c857f3f644187f4fbf7d9a875fbfc4fb"
 dependencies = [
  "embed-resource",
  "toml 0.7.8",
+]
+
+[[package]]
+name = "tauri_template"
+version = "0.0.0"
+dependencies = [
+ "confy",
+ "serde",
+ "serde_derive",
+ "serde_json",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-process",
+ "tauri-plugin-shell",
+ "tauri-plugin-updater",
+ "tauri-plugin-window-state",
+ "tokio",
 ]
 
 [[package]]
