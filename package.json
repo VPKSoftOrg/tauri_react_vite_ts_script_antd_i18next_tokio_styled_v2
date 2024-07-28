@@ -18,6 +18,7 @@
         "@tauri-apps/api": ">=2.0.0-beta.15",
         "@tauri-apps/plugin-process": "^2.0.0-beta.7",
         "@tauri-apps/plugin-shell": "^2.0.0-beta.8",
+        "@tauri-apps/plugin-store": "^2.0.0-beta.7",
         "@tauri-apps/plugin-updater": "^2.0.0-beta.7",
         "@tauri-apps/plugin-window-state": "github:tauri-apps/tauri-plugin-window-state#v2",
         "antd": "^5.19.3",
