@@ -2,6 +2,16 @@
     "identifier": "window-state",
     "description": "window-state plugin permissions",
     "local": true,
-    "windows": ["main"],
-    "permissions": ["window-state:allow-restore-state", "window-state:allow-save-window-state"]
+    "windows": [
+        "main"
+    ],
+    "platforms": [
+        "linux",
+        "macOS",
+        "windows"
+    ],
+    "permissions": [
+        "window-state:allow-restore-state",
+        "window-state:allow-save-window-state"
+    ]
 }
