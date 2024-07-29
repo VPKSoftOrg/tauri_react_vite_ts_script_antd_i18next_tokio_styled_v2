@@ -93,9 +93,11 @@ const AppToolbar = styled(AppToolbarComponent)`
     display: flex;
     flex-direction: row;
     gap: 4px;
+    // TODO::Calculate background color here
     .AppToolbar-separator {
         width: 4px;
     }
+    padding-bottom: 4px;
 `;
 
 export { AppToolbar };

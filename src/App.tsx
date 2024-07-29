@@ -5,6 +5,7 @@ import { exit } from "@tauri-apps/plugin-process";
 import { styled } from "styled-components";
 import { Button, Form, Input } from "antd";
 import classNames from "classnames";
+import { type } from "@tauri-apps/plugin-os";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { StyledTitle } from "./components/app/WindowTitle";
@@ -19,6 +20,8 @@ import { CommonProps } from "./components/Types";
 import { AppMenuToolbar } from "./menu/AppMenuToolbar";
 
 type AppProps = CommonProps;
+const osType = type();
+const mobile = osType === "ios" || osType === "android";
 
 /**
  * Renders the main application component.
@@ -42,6 +45,21 @@ const App = ({ className }: AppProps) => {
             void restoreState();
         }
     }, [restoreState, settingsLoaded, settings, setStateSaverEnabled]);
+
+    React.useEffect(() => {
+        if (mobile) {
+            const title = document.querySelector("#title");
+
+            if (title && title instanceof HTMLElement) {
+                title.style.height = "0px";
+            }
+
+            const root = document.querySelector("#root");
+            if (root && root instanceof HTMLElement) {
+                root.style.height = "calc(100vh - 8px - 8px)";
+            }
+        }
+    }, []);
 
     const { translate, setLocale } = useTranslate();
 
@@ -128,14 +146,16 @@ const App = ({ className }: AppProps) => {
 
     return (
         <>
-            <StyledTitle //
-                title="TauriTemplate"
-                onClose={onClose}
-                darkMode={previewDarkMode ?? settings.dark_mode ?? false}
-                maximizeTitle={translate("maximize")}
-                minimizeTitle={translate("minimize")}
-                closeTitle={translate("close")}
-            />
+            {!mobile && (
+                <StyledTitle //
+                    title="TauriTemplate"
+                    onClose={onClose}
+                    darkMode={previewDarkMode ?? settings.dark_mode ?? false}
+                    maximizeTitle={translate("maximize")}
+                    minimizeTitle={translate("minimize")}
+                    closeTitle={translate("close")}
+                />
+            )}
             <AppMenuToolbar //
                 menuItems={menuItems}
                 onItemClick={onMenuItemClick}

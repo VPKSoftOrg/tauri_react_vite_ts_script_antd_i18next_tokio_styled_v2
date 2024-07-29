@@ -2,6 +2,11 @@
     "identifier": "updater",
     "description": "updater plugin permissions",
     "local": true,
-    "windows": ["main"],
-    "permissions": ["updater:default", "updater:allow-check"]
+    "windows": [
+        "main"
+    ],
+    "permissions": [
+        "updater:default",
+        "updater:allow-check"
+    ]
 }

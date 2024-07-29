@@ -14,6 +14,7 @@ pub async fn run() {
     #[cfg(any(target_os = "android", target_os = "ios"))]
     {
         tauri::Builder::default()
+            .plugin(tauri_plugin_os::init())
             .plugin(tauri_plugin_process::init())
             .plugin(tauri_plugin_shell::init())
             .plugin(tauri_plugin_updater::Builder::default().build())
@@ -32,6 +33,7 @@ pub async fn run() {
             .plugin(tauri_plugin_process::init())
             .plugin(tauri_plugin_shell::init())
             .plugin(tauri_plugin_updater::Builder::default().build())
+            .plugin(tauri_plugin_os::init())
             .plugin(tauri_plugin_window_state::Builder::default().build())
             .invoke_handler(tauri::generate_handler![
                 greet,

@@ -24,8 +24,11 @@ SOFTWARE.
 
 import * as React from "react";
 import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-import { EventCallback, TauriEvent, UnlistenFn } from "@tauri-apps/api/event";
+import { EventCallback, TauriEvent } from "@tauri-apps/api/event";
 import { StateFlags, restoreStateCurrent, saveWindowState } from "@tauri-apps/plugin-window-state";
+import { type } from "@tauri-apps/plugin-os";
+
+const osType = type();
 
 /**
  * A hook that adds an event listener to the window object for the given event type and callback function.
@@ -41,20 +44,12 @@ const useWindowEventListener = (event: TauriEvent, callback: () => void) => {
     }, [callback]);
 
     React.useEffect(() => {
-        let unListenResize: UnlistenFn;
-
-        appWindow
-            .listen(event, windowEventCallback)
-            .then(unlisten => {
-                unListenResize = unlisten;
-            })
-            // eslint-disable-next-line no-console
-            .catch(console.error);
+        const unlistenPromise = appWindow.listen(event, windowEventCallback);
 
         return () => {
-            if (typeof unListenResize === "function") {
-                void unListenResize();
-            }
+            void unlistenPromise.then(unlisten => {
+                void unlisten();
+            });
         };
     }, [appWindow, event, windowEventCallback]);
 };
@@ -68,7 +63,7 @@ const useWindowEventListener = (event: TauriEvent, callback: () => void) => {
  *   - setStateSaverEnabled: A function to enable or disable state saving. The default value is `false`.
  *   - restoreState: A function to restore the saved state.
  */
-const useWindowStateSaver = (intervalMs: number) => {
+const useWindowStateSaverImplemented = (intervalMs: number) => {
     const [stateSaverEnabled, setStateSaverEnabled] = React.useState(false);
     const intervalPassed = React.useRef<boolean>(false);
     const windowEventOccurred = React.useRef<boolean>(false);
@@ -108,5 +103,26 @@ const useWindowStateSaver = (intervalMs: number) => {
 
     return { stateSaverEnabled, setStateSaverEnabled, restoreState };
 };
+
+/**
+ * A custom hook that listens for window state changes and saves the state periodically after a delay in case the window state was changed.
+ *
+ * @param {number} _intervalMs - The interval in milliseconds at which the state should be saved.
+ * @return {Object} An object containing the following properties:
+ *   - stateSaverEnabled: A boolean indicating whether state saving is enabled.
+ *   - setStateSaverEnabled: A function to enable or disable state saving. The default value is `false`.
+ *   - restoreState: A function to restore the saved state.
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const useWindowStateSaverEmpty = (_intervalMs: number) => {
+    const [stateSaverEnabled, setStateSaverEnabled] = React.useState(false);
+
+    const restoreState = React.useCallback(() => {}, []);
+
+    return { stateSaverEnabled, setStateSaverEnabled, restoreState };
+};
+
+// Android and iOS does not support window state saving
+const useWindowStateSaver = osType === "ios" || osType === "android" ? useWindowStateSaverEmpty : useWindowStateSaverImplemented;
 
 export { useWindowStateSaver };

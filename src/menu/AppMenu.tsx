@@ -59,7 +59,8 @@ const StyledAppMenu = styled(AppMenu)`
     display: flex;
     flex-direction: column;
     min-height: 0px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    // TODO::Calculate background color for the padding === div
 `;
 
 export { StyledAppMenu as AppMenu };
