@@ -27,6 +27,7 @@ import { styled } from "styled-components";
 import classNames from "classnames";
 import { CommonProps } from "../components/Types";
 import { useTranslate } from "../localization/Localization";
+import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/antd-constants";
 import { AppMenu, MenuItems } from "./AppMenu";
 import { AppToolbar } from "./AppToolbar";
 import { MenuKeys } from "./MenuItems";
@@ -84,7 +85,7 @@ const AppMenuToolbar = styled(AppMenuToolbarComponent)`
     flex-direction: column;
     min-height: 0px;
     margin-bottom: 10px;
-    background-color: ${props => (props.darkMode ? "#141414" : "#ffffff")};
+    background-color: ${props => (props.darkMode ? darkModeMenuBackground : lightModeMenuBackground)};
 `;
 
 export { AppMenuToolbar };

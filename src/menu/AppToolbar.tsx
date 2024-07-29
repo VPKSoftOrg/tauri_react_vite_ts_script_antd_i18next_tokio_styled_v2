@@ -27,6 +27,7 @@ import { styled } from "styled-components";
 import classNames from "classnames";
 import { CommonProps } from "../components/Types";
 import { TooltipObjectButton } from "../components/wrappers/TooltipObjectButton";
+import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/antd-constants";
 
 export type ToolBarItem<T> = {
     icon: React.ReactNode;
@@ -98,7 +99,7 @@ const AppToolbar = styled(AppToolbarComponent)`
         width: 4px;
     }
     padding-bottom: 4px;
-    background-color: ${props => (props.darkMode ? "#141414" : "#ffffff")};
+    background-color: ${props => (props.darkMode ? darkModeMenuBackground : lightModeMenuBackground)};
 `;
 
 export { AppToolbar };
