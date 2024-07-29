@@ -42,6 +42,7 @@ export type ToolBarSeparator = "|";
  */
 export type AppToolbarProps<T> = {
     toolBarItems: (ToolBarItem<T> | ToolBarSeparator)[];
+    darkMode: boolean;
     onItemClick: (item: T) => void;
 } & CommonProps;
 
@@ -93,11 +94,11 @@ const AppToolbar = styled(AppToolbarComponent)`
     display: flex;
     flex-direction: row;
     gap: 4px;
-    // TODO::Calculate background color here
     .AppToolbar-separator {
         width: 4px;
     }
     padding-bottom: 4px;
+    background-color: ${props => (props.darkMode ? "#141414" : "#ffffff")};
 `;
 
 export { AppToolbar };

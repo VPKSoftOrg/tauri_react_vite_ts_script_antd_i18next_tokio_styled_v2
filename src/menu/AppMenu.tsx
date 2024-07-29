@@ -17,6 +17,8 @@ export type AppMenuProps = {
     items: MenuItems;
     /** The mode of the application menu. */
     mode?: MenuMode;
+    /** A value indicating whether to use dark mode with the application. */
+    darkMode: boolean;
     /**
      * Occurs then the menu item was clicked.
      * @param key The action key from the menu item.
@@ -60,7 +62,7 @@ const StyledAppMenu = styled(AppMenu)`
     flex-direction: column;
     min-height: 0px;
     padding-bottom: 10px;
-    // TODO::Calculate background color for the padding === div
+    background-color: ${props => (props.darkMode ? "#141414" : "#ffffff")};
 `;
 
 export { StyledAppMenu as AppMenu };

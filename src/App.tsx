@@ -159,6 +159,7 @@ const App = ({ className }: AppProps) => {
             <AppMenuToolbar //
                 menuItems={menuItems}
                 onItemClick={onMenuItemClick}
+                darkMode={previewDarkMode ?? settings.dark_mode ?? false}
             />
             <div //
                 className={classNames(App.name, className)}
