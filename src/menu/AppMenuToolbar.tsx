@@ -27,6 +27,7 @@ import { styled } from "styled-components";
 import classNames from "classnames";
 import { CommonProps } from "../components/Types";
 import { useTranslate } from "../localization/Localization";
+import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/antd-constants";
 import { AppMenu, MenuItems } from "./AppMenu";
 import { AppToolbar } from "./AppToolbar";
 import { MenuKeys } from "./MenuItems";
@@ -37,6 +38,7 @@ import { appToolbarItems } from "./ToolbarItems";
  */
 type AppMenuToolbarProps = {
     menuItems: MenuItems;
+    darkMode: boolean;
     onItemClick: (key: MenuKeys) => void;
 } & CommonProps;
 
@@ -48,6 +50,7 @@ type AppMenuToolbarProps = {
 const AppMenuToolbarComponent = ({
     className, //
     menuItems,
+    darkMode,
     onItemClick,
 }: AppMenuToolbarProps) => {
     const { translate } = useTranslate();
@@ -66,10 +69,12 @@ const AppMenuToolbarComponent = ({
             <AppMenu //
                 items={menuItems}
                 onItemClick={onToolbarItemInternal}
+                darkMode={darkMode}
             />
             <AppToolbar //
                 toolBarItems={appToolbarItems(translate)}
                 onItemClick={onToolbarItemInternal}
+                darkMode={darkMode}
             />
         </div>
     );
@@ -80,6 +85,7 @@ const AppMenuToolbar = styled(AppMenuToolbarComponent)`
     flex-direction: column;
     min-height: 0px;
     margin-bottom: 10px;
+    background-color: ${props => (props.darkMode ? darkModeMenuBackground : lightModeMenuBackground)};
 `;
 
 export { AppMenuToolbar };

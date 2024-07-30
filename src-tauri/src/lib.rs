@@ -1,4 +1,4 @@
-use config::{get_app_config, set_app_config, AppConfig};
+use config::{get_app_config, get_config_path, set_app_config, AppConfig};
 
 mod config;
 
@@ -11,18 +11,38 @@ fn greet(name: &str) -> String {
 #[tokio::main]
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub async fn run() {
-    tauri::Builder::default()
-        .plugin(tauri_plugin_process::init())
-        .plugin(tauri_plugin_shell::init())
-        .plugin(tauri_plugin_window_state::Builder::default().build())
-        .plugin(tauri_plugin_updater::Builder::default().build())
-        .invoke_handler(tauri::generate_handler![
-            greet,
-            load_settings,
-            save_settings
-        ])
-        .run(tauri::generate_context!())
-        .expect("error while running tauri application");
+    #[cfg(any(target_os = "android", target_os = "ios"))]
+    {
+        tauri::Builder::default()
+            .plugin(tauri_plugin_os::init())
+            .plugin(tauri_plugin_process::init())
+            .plugin(tauri_plugin_shell::init())
+            .plugin(tauri_plugin_updater::Builder::default().build())
+            .invoke_handler(tauri::generate_handler![
+                greet,
+                load_settings,
+                save_settings,
+            ])
+            .run(tauri::generate_context!())
+            .expect("error while running tauri application");
+    }
+
+    #[cfg(not(any(target_os = "android", target_os = "ios")))]
+    {
+        tauri::Builder::default()
+            .plugin(tauri_plugin_process::init())
+            .plugin(tauri_plugin_shell::init())
+            .plugin(tauri_plugin_updater::Builder::default().build())
+            .plugin(tauri_plugin_os::init())
+            .plugin(tauri_plugin_window_state::Builder::default().build())
+            .invoke_handler(tauri::generate_handler![
+                greet,
+                load_settings,
+                save_settings,
+            ])
+            .run(tauri::generate_context!())
+            .expect("error while running tauri application");
+    }
 }
 
 /// Loads the application settings requested by the frontend.
@@ -30,8 +50,9 @@ pub async fn run() {
 /// # Returns
 /// Application settings.
 #[tauri::command]
-async fn load_settings() -> AppConfig {
-    get_app_config()
+async fn load_settings(app_handle: tauri::AppHandle) -> AppConfig {
+    let cfg_path = get_config_path(&app_handle);
+    get_app_config(&cfg_path)
 }
 
 /// Saves the settings passed from the frontend.
@@ -43,6 +64,7 @@ async fn load_settings() -> AppConfig {
 /// # Returns
 /// `true` if the settings were saved successfully; `false` otherwise.
 #[tauri::command]
-async fn save_settings(config: AppConfig) -> bool {
-    set_app_config(config)
+async fn save_settings(config: AppConfig, app_handle: tauri::AppHandle) -> bool {
+    let cfg_path = get_config_path(&app_handle);
+    set_app_config(&cfg_path, config)
 }

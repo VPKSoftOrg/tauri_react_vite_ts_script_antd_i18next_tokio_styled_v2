@@ -50,11 +50,15 @@ export type Settings = {
 const loadSettings = async () => {
     const settingDeserialized = window.localStorage.getItem("settings") as string | null;
     const localSettings = settingDeserialized === null ? null : (JSON.parse(settingDeserialized) as Settings);
-    if (localSettings !== null) {
+    if (localSettings !== null && !localSettings.error) {
         return localSettings;
     }
     const settings = (await invoke("load_settings")) as Settings;
-    window.localStorage.setItem("settings", JSON.stringify(settings));
+    if (settings.error) {
+        window.localStorage.removeItem("settings");
+    } else {
+        window.localStorage.setItem("settings", JSON.stringify(settings));
+    }
     return settings;
 };
 
@@ -83,6 +87,7 @@ const useSettings = (onErrorCallback?: (error: Error | string | unknown) => void
             const settings = await loadSettings();
             if (settings.error) {
                 onErrorCallback?.(new Error(settings.error_message));
+                setCurrentSettings(null);
                 return;
             }
             setCurrentSettings(settings);

@@ -5,6 +5,7 @@ import { exit } from "@tauri-apps/plugin-process";
 import { styled } from "styled-components";
 import { Button, Form, Input } from "antd";
 import classNames from "classnames";
+import { type } from "@tauri-apps/plugin-os";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { StyledTitle } from "./components/app/WindowTitle";
@@ -19,6 +20,8 @@ import { CommonProps } from "./components/Types";
 import { AppMenuToolbar } from "./menu/AppMenuToolbar";
 
 type AppProps = CommonProps;
+const osType = type();
+const mobile = osType === "ios" || osType === "android";
 
 /**
  * Renders the main application component.
@@ -128,17 +131,20 @@ const App = ({ className }: AppProps) => {
 
     return (
         <>
-            <StyledTitle //
-                title="TauriTemplate"
-                onClose={onClose}
-                darkMode={previewDarkMode ?? settings.dark_mode ?? false}
-                maximizeTitle={translate("maximize")}
-                minimizeTitle={translate("minimize")}
-                closeTitle={translate("close")}
-            />
+            {!mobile && (
+                <StyledTitle //
+                    title="TauriTemplate"
+                    onClose={onClose}
+                    darkMode={previewDarkMode ?? settings.dark_mode ?? false}
+                    maximizeTitle={translate("maximize")}
+                    minimizeTitle={translate("minimize")}
+                    closeTitle={translate("close")}
+                />
+            )}
             <AppMenuToolbar //
                 menuItems={menuItems}
                 onItemClick={onMenuItemClick}
+                darkMode={previewDarkMode ?? settings.dark_mode ?? false}
             />
             <div //
                 className={classNames(App.name, className)}

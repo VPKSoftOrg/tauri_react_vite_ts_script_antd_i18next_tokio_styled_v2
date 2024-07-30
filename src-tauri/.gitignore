@@ -8,3 +8,7 @@
 
 # Self-generated localization from the fronted JSON localization content
 /locales/
+
+/.cargo/
+
+/gen/

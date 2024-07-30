@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+import { type } from "@tauri-apps/plugin-os";
 import { ConfigProvider, GlobalToken, theme } from "antd";
 import * as React from "react";
 
@@ -38,6 +39,9 @@ type ThemeContextPayload = {
  * The context for the theming.
  */
 const ThemeContext = React.createContext<ThemeContextPayload>({ setTheme: null, updateBackround: null, antdTheme: "light" });
+
+const osType = type();
+const mobile = osType === "ios" || osType === "android";
 
 type Props = {
     children?: React.ReactNode;
@@ -77,6 +81,22 @@ const AntdThemeProvider = ({ children }: Props) => {
         },
         [antdTheme]
     );
+
+    // Effect to change the title bar height for mobile devices upon mounting.
+    React.useEffect(() => {
+        if (mobile) {
+            const title = document.querySelector("#title");
+
+            if (title && title instanceof HTMLElement) {
+                title.style.height = "0px";
+            }
+
+            const root = document.querySelector("#root");
+            if (root && root instanceof HTMLElement) {
+                root.style.height = "calc(100vh - 8px - 8px)";
+            }
+        }
+    }, []);
 
     return (
         <ConfigProvider

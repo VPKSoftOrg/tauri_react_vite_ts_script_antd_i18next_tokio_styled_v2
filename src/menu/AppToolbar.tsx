@@ -27,6 +27,7 @@ import { styled } from "styled-components";
 import classNames from "classnames";
 import { CommonProps } from "../components/Types";
 import { TooltipObjectButton } from "../components/wrappers/TooltipObjectButton";
+import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/antd-constants";
 
 export type ToolBarItem<T> = {
     icon: React.ReactNode;
@@ -42,6 +43,7 @@ export type ToolBarSeparator = "|";
  */
 export type AppToolbarProps<T> = {
     toolBarItems: (ToolBarItem<T> | ToolBarSeparator)[];
+    darkMode: boolean;
     onItemClick: (item: T) => void;
 } & CommonProps;
 
@@ -96,6 +98,8 @@ const AppToolbar = styled(AppToolbarComponent)`
     .AppToolbar-separator {
         width: 4px;
     }
+    padding-bottom: 4px;
+    background-color: ${props => (props.darkMode ? darkModeMenuBackground : lightModeMenuBackground)};
 `;
 
 export { AppToolbar };

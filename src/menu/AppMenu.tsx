@@ -5,6 +5,7 @@ import { styled } from "styled-components";
 import classNames from "classnames";
 import { ItemType } from "antd/es/menu/interface";
 import { CommonProps } from "../components/Types";
+import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/antd-constants";
 import { MenuKeys } from "./MenuItems";
 
 export type MenuItems = ItemType[];
@@ -17,6 +18,8 @@ export type AppMenuProps = {
     items: MenuItems;
     /** The mode of the application menu. */
     mode?: MenuMode;
+    /** A value indicating whether to use dark mode with the application. */
+    darkMode: boolean;
     /**
      * Occurs then the menu item was clicked.
      * @param key The action key from the menu item.
@@ -59,7 +62,8 @@ const StyledAppMenu = styled(AppMenu)`
     display: flex;
     flex-direction: column;
     min-height: 0px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    background-color: ${props => (props.darkMode ? darkModeMenuBackground : lightModeMenuBackground)};
 `;
 
 export { StyledAppMenu as AppMenu };
