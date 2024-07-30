@@ -46,21 +46,6 @@ const App = ({ className }: AppProps) => {
         }
     }, [restoreState, settingsLoaded, settings, setStateSaverEnabled]);
 
-    React.useEffect(() => {
-        if (mobile) {
-            const title = document.querySelector("#title");
-
-            if (title && title instanceof HTMLElement) {
-                title.style.height = "0px";
-            }
-
-            const root = document.querySelector("#root");
-            if (root && root instanceof HTMLElement) {
-                root.style.height = "calc(100vh - 8px - 8px)";
-            }
-        }
-    }, []);
-
     const { translate, setLocale } = useTranslate();
 
     React.useEffect(() => {
