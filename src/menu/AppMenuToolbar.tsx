@@ -39,6 +39,7 @@ import { appToolbarItems } from "./ToolbarItems";
 type AppMenuToolbarProps = {
     menuItems: MenuItems;
     darkMode: boolean;
+    mobile: boolean;
     onItemClick: (key: MenuKeys) => void;
 } & CommonProps;
 
@@ -51,6 +52,7 @@ const AppMenuToolbarComponent = ({
     className, //
     menuItems,
     darkMode,
+    mobile,
     onItemClick,
 }: AppMenuToolbarProps) => {
     const { translate } = useTranslate();
@@ -66,13 +68,15 @@ const AppMenuToolbarComponent = ({
         <div //
             className={classNames(AppMenuToolbar.name, className)}
         >
-            <AppMenu //
-                items={menuItems}
-                onItemClick={onToolbarItemInternal}
-                darkMode={darkMode}
-            />
+            {!mobile && (
+                <AppMenu //
+                    items={menuItems}
+                    onItemClick={onToolbarItemInternal}
+                    darkMode={darkMode}
+                />
+            )}
             <AppToolbar //
-                toolBarItems={appToolbarItems(translate)}
+                toolBarItems={appToolbarItems(mobile, translate)}
                 onItemClick={onToolbarItemInternal}
                 darkMode={darkMode}
             />
@@ -86,6 +90,7 @@ const AppMenuToolbar = styled(AppMenuToolbarComponent)`
     min-height: 0px;
     margin-bottom: 10px;
     background-color: ${props => (props.darkMode ? darkModeMenuBackground : lightModeMenuBackground)};
+    ${props => (props.mobile ? "padding-top: 4px;" : "")}
 `;
 
 export { AppMenuToolbar };
