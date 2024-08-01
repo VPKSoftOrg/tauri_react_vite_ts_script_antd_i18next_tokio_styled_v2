@@ -47,11 +47,15 @@ Also with dark mode support:
 
 The application running on mobile:
 
-![image](https://github.com/user-attachments/assets/f3208534-30ad-4c50-85f0-0cdf71138262) ![image](https://github.com/user-attachments/assets/9b267760-766e-4d3b-a21a-aa0ffeb4438e) 
+![image](https://github.com/user-attachments/assets/cde7b644-895c-44e0-9be3-fca852909ccf)
+ ![image](https://github.com/user-attachments/assets/3062a9b4-15ec-4285-9bfb-3617abd96a24)
+ 
 
 The drawer menu on mobile:
 
-![image](https://github.com/user-attachments/assets/e72993e1-ee66-4326-981f-346999265bca) ![image](https://github.com/user-attachments/assets/20eaf909-ac3e-4e4b-b42e-5246d03748d9)
+![image](https://github.com/user-attachments/assets/22e547a2-a65a-4ff0-a998-cb940990fa67)
+ ![image](https://github.com/user-attachments/assets/875cd9fa-01ae-40ef-9152-e67fb93c4a95)
+
 
 
 
