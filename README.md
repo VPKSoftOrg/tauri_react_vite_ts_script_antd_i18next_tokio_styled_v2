@@ -40,10 +40,20 @@ Support for localization which is totally optional.
 For backend localization see the [additional readme](./src/localization/rust_i18n_transform/README.md).
 
 The window title bar is custom. E.g. it looks the same with different operation systems:
-![image](https://github.com/VPKSoftOrg/tauri_react_vite_ts_script_antd_i18next_tokio_styled/assets/40712699/dc99d8b0-5796-40f0-aa52-baf913f97f8a)
+![image](https://github.com/user-attachments/assets/ccaaabb1-45f1-481c-9a85-386e3bf58b43)
 
 Also with dark mode support:
-![image](https://github.com/VPKSoftOrg/tauri_react_vite_ts_script_antd_i18next_tokio_styled/assets/40712699/565d346b-4272-4beb-8933-b4d1f8e45d20)
+![image](https://github.com/user-attachments/assets/eb5040c9-b7d4-42a3-ba34-78a15b737ffd)
+
+The application running on mobile:
+
+![image](https://github.com/user-attachments/assets/f3208534-30ad-4c50-85f0-0cdf71138262) ![image](https://github.com/user-attachments/assets/9b267760-766e-4d3b-a21a-aa0ffeb4438e) 
+
+The drawer menu on mobile:
+
+![image](https://github.com/user-attachments/assets/e72993e1-ee66-4326-981f-346999265bca) ![image](https://github.com/user-attachments/assets/20eaf909-ac3e-4e4b-b42e-5246d03748d9)
+
+
 
 
 
