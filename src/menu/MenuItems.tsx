@@ -40,4 +40,4 @@ export const appMenuItems = (localize?: LocalizeFunction): MenuItems => [
     },
 ];
 
-export type MenuKeys = "fileMenu" | "helpMenu" | "aboutMenu" | "exitMenu" | "preferencesMenu";
+export type MenuKeys = "fileMenu" | "helpMenu" | "aboutMenu" | "exitMenu" | "preferencesMenu" | "menuDrawer";

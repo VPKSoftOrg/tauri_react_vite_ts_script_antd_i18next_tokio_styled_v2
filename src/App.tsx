@@ -3,7 +3,7 @@ import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { exit } from "@tauri-apps/plugin-process";
 import { styled } from "styled-components";
-import { Button, Form, Input } from "antd";
+import { Button, Drawer, Form, Input } from "antd";
 import classNames from "classnames";
 import { type } from "@tauri-apps/plugin-os";
 import reactLogo from "./assets/react.svg";
@@ -18,6 +18,7 @@ import { useWindowStateSaver } from "./hooks/UseWindowStateListener";
 import { useAntdTheme, useAntdToken } from "./context/AntdThemeContext";
 import { CommonProps } from "./components/Types";
 import { AppMenuToolbar } from "./menu/AppMenuToolbar";
+import { AppMenu } from "./menu/AppMenu";
 
 type AppProps = CommonProps;
 const osType = type();
@@ -34,6 +35,7 @@ const App = ({ className }: AppProps) => {
     const [aboutPopupVisible, setAboutPopupVisible] = React.useState(false);
     const [preferencesVisible, setPreferencesVisible] = React.useState(false);
     const [settings, settingsLoaded, updateSettings, reloadSettings] = useSettings();
+    const [drawerVisible, setDrawerVisible] = React.useState(false);
     const { token } = useAntdToken();
     const { setStateSaverEnabled, restoreState } = useWindowStateSaver(10_000);
     const { setTheme, updateBackround } = useAntdTheme();
@@ -82,6 +84,17 @@ const App = ({ className }: AppProps) => {
         return appMenuItems(translate);
     }, [translate]);
 
+    // Hide the Ant Design drawer header
+    React.useEffect(() => {
+        if (drawerVisible) {
+            const menuDrawer = document.querySelector(".ant-drawer-header");
+
+            if (menuDrawer && menuDrawer instanceof HTMLElement) {
+                menuDrawer.style.display = "none";
+            }
+        }
+    }, [drawerVisible]);
+
     const onMenuItemClick = React.useCallback((key: unknown) => {
         const keyValue = key as MenuKeys;
         switch (keyValue) {
@@ -95,6 +108,10 @@ const App = ({ className }: AppProps) => {
             }
             case "preferencesMenu": {
                 setPreferencesVisible(true);
+                break;
+            }
+            case "menuDrawer": {
+                setDrawerVisible(f => !f);
                 break;
             }
             default: {
@@ -125,6 +142,11 @@ const App = ({ className }: AppProps) => {
         [setTheme]
     );
 
+    // Close the drawer when the user clicks outside of it
+    const onCloseDrawer = React.useCallback(() => {
+        setDrawerVisible(false);
+    }, []);
+
     if (!settingsLoaded || settings === null) {
         return <div>Loading...</div>;
     }
@@ -142,6 +164,7 @@ const App = ({ className }: AppProps) => {
                 />
             )}
             <AppMenuToolbar //
+                mobile={mobile}
                 menuItems={menuItems}
                 onItemClick={onMenuItemClick}
                 darkMode={previewDarkMode ?? settings.dark_mode ?? false}
@@ -210,6 +233,19 @@ const App = ({ className }: AppProps) => {
                     toggleDarkMode={toggleDarkMode}
                 />
             )}
+            <Drawer //
+                onClose={onCloseDrawer}
+                open={drawerVisible}
+                width="70%"
+            >
+                <AppMenu //
+                    className="AppMenu"
+                    mode="inline"
+                    items={menuItems}
+                    onItemClick={onMenuItemClick}
+                    darkMode={true}
+                />
+            </Drawer>
         </>
     );
 };
@@ -218,6 +254,9 @@ const SyledApp = styled(App)`
     height: 100%;
     width: 100%;
     display: contents;
+    .AppMenu {
+        overflow: hidden;
+    }
 `;
 
 export { SyledApp as App };
