@@ -49,10 +49,10 @@ pub async fn run() {
 ///
 /// # Returns
 /// Application settings.
-#[tauri::command]
+#[tauri::command(async)]
 async fn load_settings(app_handle: tauri::AppHandle) -> AppConfig {
-    let cfg_path = get_config_path(&app_handle);
-    get_app_config(&cfg_path)
+    let cfg_path = get_config_path(&app_handle).await;
+    get_app_config(&cfg_path).await
 }
 
 /// Saves the settings passed from the frontend.
@@ -63,8 +63,8 @@ async fn load_settings(app_handle: tauri::AppHandle) -> AppConfig {
 ///
 /// # Returns
 /// `true` if the settings were saved successfully; `false` otherwise.
-#[tauri::command]
+#[tauri::command(async)]
 async fn save_settings(config: AppConfig, app_handle: tauri::AppHandle) -> bool {
-    let cfg_path = get_config_path(&app_handle);
-    set_app_config(&cfg_path, config)
+    let cfg_path = get_config_path(&app_handle).await;
+    set_app_config(&cfg_path, config).await
 }
