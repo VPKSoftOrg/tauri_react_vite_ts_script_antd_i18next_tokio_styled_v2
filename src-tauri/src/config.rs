@@ -1,7 +1,8 @@
-use std::{fs, path::PathBuf};
+use std::path::PathBuf;
 
 use serde_derive::{Deserialize, Serialize};
 use tauri::Manager;
+use tokio::fs;
 
 /// The software settings.
 #[derive(Debug, Serialize, Deserialize)]
@@ -57,15 +58,15 @@ impl AppConfig {
 ///
 /// # Returns
 /// An AppConfig value
-pub fn get_app_config(cfg_path: &str) -> AppConfig {
+pub async fn get_app_config(cfg_path: &str) -> AppConfig {
     if !PathBuf::from(cfg_path).exists() {
-        let success = set_app_config(cfg_path, AppConfig::default());
+        let success = set_app_config(cfg_path, AppConfig::default()).await;
         if !success {
             return AppConfig::error(&String::from("Failed to save default config"), cfg_path);
         }
     }
 
-    let result = match fs::read(cfg_path) {
+    let result = match fs::read(cfg_path).await {
         Ok(v) => {
             // The vector to string
             let result = match String::from_utf8(v) {
@@ -97,10 +98,10 @@ pub fn get_app_config(cfg_path: &str) -> AppConfig {
 ///
 /// # Returns
 /// `true` if the config was successfully saved; `false` otherwise.
-pub fn set_app_config(cfg_path: &str, config: AppConfig) -> bool {
+pub async fn set_app_config(cfg_path: &str, config: AppConfig) -> bool {
     let result = match serde_json::to_string(&config) {
         Ok(v) => {
-            let result = match fs::write(cfg_path, v) {
+            let result = match fs::write(cfg_path, v).await {
                 Ok(_) => true,
                 Err(_) => false,
             };
@@ -119,11 +120,11 @@ pub fn set_app_config(cfg_path: &str, config: AppConfig) -> bool {
 ///
 /// # Returns
 /// The application config path
-pub fn get_config_path(app_handle: &tauri::AppHandle) -> String {
+pub async fn get_config_path(app_handle: &tauri::AppHandle) -> String {
     let binding = match app_handle.path().app_config_dir() {
         Ok(mut v) => {
             if !v.exists() {
-                match fs::create_dir_all(&v) {
+                match fs::create_dir_all(&v).await {
                     Ok(_) => {}
                     Err(_) => {}
                 }
