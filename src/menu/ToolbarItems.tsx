@@ -2,8 +2,8 @@
 import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faDoorOpen, faGear, faInfo } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { LocalizeFunction } from "../localization/Localization";
-
 import { ToolBarItem, ToolBarSeparator } from "./AppToolbar";
 import { MenuKeys } from "./MenuItems";
 
@@ -13,7 +13,7 @@ export const appToolbarItems = (mobile: boolean, localize?: LocalizeFunction): (
     // Only add menu button if on mobile
     if (mobile) {
         result.push({
-            icon: <FontAwesomeIcon icon={faBars} />,
+            icon: <FontAwesomeIcon icon={faBars as IconProp} />,
             title: localize?.("menu") ?? "Menu",
             tooltipTitle: localize?.("menu") ?? "Menu",
             clickActionObject: "menuDrawer",
@@ -22,20 +22,20 @@ export const appToolbarItems = (mobile: boolean, localize?: LocalizeFunction): (
 
     result.push(
         {
-            icon: <FontAwesomeIcon icon={faGear} />,
+            icon: <FontAwesomeIcon icon={faGear as IconProp} />,
             title: localize?.("preferences") ?? "Preferences",
             tooltipTitle: localize?.("preferences") ?? "Preferences",
             clickActionObject: "preferencesMenu",
         },
         {
-            icon: <FontAwesomeIcon icon={faDoorOpen} />,
+            icon: <FontAwesomeIcon icon={faDoorOpen as IconProp} />,
             title: localize?.("exitMenu") ?? "Exit",
             tooltipTitle: localize?.("exitMenu") ?? "Exit",
             clickActionObject: "exitMenu",
         },
         "|",
         {
-            icon: <FontAwesomeIcon icon={faInfo} />,
+            icon: <FontAwesomeIcon icon={faInfo as IconProp} />,
             title: localize?.("aboutMenu") ?? "About",
             tooltipTitle: localize?.("aboutMenu") ?? "About",
             clickActionObject: "aboutMenu",
