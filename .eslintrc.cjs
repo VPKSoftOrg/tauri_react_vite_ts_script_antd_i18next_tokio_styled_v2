@@ -53,7 +53,7 @@ module.exports = {
                 ignore: ["^\\.js$", "^\\.?.*\\.js$", "^\\.?.*\\.cjs$", "^_.*", "main.*?.tsx", "vite.config.ts", ".*?\\.ts"],
             },
         ],
-        "prefer-arrow/prefer-arrow-functions": [
+        "prefer-arrow-functions/prefer-arrow-functions": [
             "error",
             {
                 disallowPrototype: true,
