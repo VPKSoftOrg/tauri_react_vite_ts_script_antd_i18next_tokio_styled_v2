@@ -2,9 +2,9 @@
 
 // A script to transform i18n json files to Rust rust-i18n crate supported format.
 
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { program } from "commander";
 
 program

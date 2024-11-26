@@ -1,9 +1,9 @@
+import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
+import classNames from "classnames";
 import * as React from "react";
 import { styled } from "styled-components";
-import classNames from "classnames";
-import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-import type { CommonProps } from "../Types";
 import { AppIcon } from "../../utilities/app/Images";
+import type { CommonProps } from "../Types";
 
 type TitleColorConfig = {
     titleBackground: string;

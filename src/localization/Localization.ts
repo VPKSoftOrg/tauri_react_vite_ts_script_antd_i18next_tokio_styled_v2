@@ -2,12 +2,12 @@ import * as i18next from "i18next";
 import * as React from "react";
 import { initReactI18next, useTranslation } from "react-i18next";
 
-import uiEnglish from "../localization/en/ui.json";
 import messagesEnglish from "../localization/en/messages.json";
 import settingsEnglish from "../localization/en/settings.json";
-import uiFinnish from "../localization/fi/ui.json";
+import uiEnglish from "../localization/en/ui.json";
 import messagesFinnish from "../localization/fi/messages.json";
 import settingsFinnish from "../localization/fi/settings.json";
+import uiFinnish from "../localization/fi/ui.json";
 
 const localizationResources = {
     en: {

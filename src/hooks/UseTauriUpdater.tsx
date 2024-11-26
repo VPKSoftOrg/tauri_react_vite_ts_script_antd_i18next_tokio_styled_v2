@@ -23,8 +23,8 @@ SOFTWARE.
 */
 
 import { relaunch } from "@tauri-apps/plugin-process";
-import * as React from "react";
 import { type DownloadEvent, type Update, check } from "@tauri-apps/plugin-updater";
+import * as React from "react";
 import { useTranslate } from "../localization/Localization";
 
 /** A value indicating whether the application should update it self. `null` value indicates an unresolved status, `undefined` indicates an error status. */

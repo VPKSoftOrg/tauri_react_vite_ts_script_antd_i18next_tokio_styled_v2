@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import * as React from "react";
 import { invoke } from "@tauri-apps/api/core";
+import * as React from "react";
 import type { Locales } from "../../localization/Localization";
 
 /**

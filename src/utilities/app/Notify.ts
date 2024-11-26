@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import * as React from "react";
 import { notification } from "antd";
+import * as React from "react";
 
 /**
  * Notification types for the {@link useNotify} hook.

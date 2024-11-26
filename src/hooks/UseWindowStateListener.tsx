@@ -22,11 +22,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import * as React from "react";
-import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { type EventCallback, TauriEvent } from "@tauri-apps/api/event";
-import { StateFlags, restoreStateCurrent, saveWindowState } from "@tauri-apps/plugin-window-state";
+import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { type } from "@tauri-apps/plugin-os";
+import { StateFlags, restoreStateCurrent, saveWindowState } from "@tauri-apps/plugin-window-state";
+import * as React from "react";
 
 const osType = type();
 

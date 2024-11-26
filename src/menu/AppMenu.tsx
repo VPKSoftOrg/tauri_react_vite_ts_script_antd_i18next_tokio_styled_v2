@@ -1,9 +1,9 @@
-import * as React from "react";
 import { Menu, type MenuProps } from "antd";
-import type { MenuInfo, MenuMode } from "rc-menu/lib/interface";
-import { styled } from "styled-components";
-import classNames from "classnames";
 import type { ItemType } from "antd/es/menu/interface";
+import classNames from "classnames";
+import type { MenuInfo, MenuMode } from "rc-menu/lib/interface";
+import * as React from "react";
+import { styled } from "styled-components";
 import type { CommonProps } from "../components/Types";
 import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/AntdConstants";
 import type { MenuKeys } from "./MenuItems";

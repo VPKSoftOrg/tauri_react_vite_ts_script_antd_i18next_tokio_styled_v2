@@ -1,7 +1,7 @@
-import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faDoorOpen, faGear, faInfo } from "@fortawesome/free-solid-svg-icons";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faBars, faDoorOpen, faGear, faInfo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as React from "react";
 import type { LocalizeFunction } from "../localization/Localization";
 import type { ToolBarItem, ToolBarSeparator } from "./AppToolbar";
 import type { MenuKeys } from "./MenuItems";
