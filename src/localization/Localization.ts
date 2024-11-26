@@ -43,7 +43,12 @@ void i18next.use(initReactI18next).init({
  * @param {object?} params The interpolation parameters for the localization function. E.g. `{ interpolationName: interpolationValue }`.
  * @param {boolean?} escapeValue A value indicating whether the special characters should be escaped with interpolation. The default value is `true`.
  */
-export type LocalizeFunction = (entryName: LocalizationNames, defaultValue?: string, params?: unknown, escapeValue?: boolean) => string;
+export type LocalizeFunction = (
+    entryName: LocalizationNames,
+    defaultValue?: string,
+    params?: unknown,
+    escapeValue?: boolean
+) => string;
 
 export const useTranslate = () => {
     const { t, i18n } = useTranslation(resourceArray);

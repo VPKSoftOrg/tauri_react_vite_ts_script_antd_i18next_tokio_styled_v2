@@ -46,7 +46,14 @@ type UpdatePromise = () => Promise<void>;
 /**
  * A result data for the {@link useTauriUpdater} hook.
  */
-type TauriUpdaterResult = [shouldUpdate: ShouldUpdate, manifest: Manifest, reCheck: ReCheck, update: UpdatePromise, checkError: boolean, errorMessage: string];
+type TauriUpdaterResult = [
+    shouldUpdate: ShouldUpdate,
+    manifest: Manifest,
+    reCheck: ReCheck,
+    update: UpdatePromise,
+    checkError: boolean,
+    errorMessage: string,
+];
 
 /**
  * A custom hook for Tauri updater check. See: https://v2.tauri.app/plugin/updater/.
@@ -59,7 +66,9 @@ const useTauriUpdater = (passive: boolean, retryCount: number = 5): TauriUpdater
     const [checkError, setCheckError] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState("");
     // (onEvent?: (progress: DownloadEvent) => void): Promise<void>;
-    const [downloadAndInstall, setDownloadAndInstall] = React.useState<((onEvent?: (progress: DownloadEvent) => void) => Promise<void>) | undefined | null>();
+    const [downloadAndInstall, setDownloadAndInstall] = React.useState<
+        ((onEvent?: (progress: DownloadEvent) => void) => Promise<void>) | undefined | null
+    >();
 
     const { translate } = useTranslate();
 
@@ -79,7 +88,9 @@ const useTauriUpdater = (passive: boolean, retryCount: number = 5): TauriUpdater
                               body: updateResult.body,
                           }
                         : null;
-                setDownloadAndInstall(updateResult !== null && updateResult.available ? updateResult.downloadAndInstall : null);
+                setDownloadAndInstall(
+                    updateResult !== null && updateResult.available ? updateResult.downloadAndInstall : null
+                );
                 setManifest(manifest);
                 setCheckError(false);
                 retries.current = 0;
@@ -94,7 +105,9 @@ const useTauriUpdater = (passive: boolean, retryCount: number = 5): TauriUpdater
                 setCheckError(true);
                 retries.current++;
                 shouldRetry.current = retries.current < retryCount;
-                setErrorMessage(translate("updateCheckFailedFile", "File open failed with message '{{error}}'.", { error: error }));
+                setErrorMessage(
+                    translate("updateCheckFailedFile", "File open failed with message '{{error}}'.", { error: error })
+                );
             });
     }, [retryCount, translate]);
 

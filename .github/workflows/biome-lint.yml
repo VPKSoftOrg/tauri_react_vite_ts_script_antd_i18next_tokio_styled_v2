@@ -15,5 +15,5 @@ jobs:
         with:
           version: latest
       - name: Run Biome
-        run: npx @biomejs/biome lint
-        # run: biome ci
+        # run: npx @biomejs/biome lint
+        run: biome ci

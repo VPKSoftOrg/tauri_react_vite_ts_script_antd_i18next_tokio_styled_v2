@@ -38,7 +38,11 @@ type ThemeContextPayload = {
 /**
  * The context for the theming.
  */
-const ThemeContext = React.createContext<ThemeContextPayload>({ setTheme: null, updateBackround: null, antdTheme: "light" });
+const ThemeContext = React.createContext<ThemeContextPayload>({
+    setTheme: null,
+    updateBackround: null,
+    antdTheme: "light",
+});
 
 const osType = type();
 const mobile = osType === "ios" || osType === "android";

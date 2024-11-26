@@ -6,7 +6,10 @@ import type { LocalizeFunction } from "../localization/Localization";
 import type { ToolBarItem, ToolBarSeparator } from "./AppToolbar";
 import type { MenuKeys } from "./MenuItems";
 
-export const appToolbarItems = (mobile: boolean, localize?: LocalizeFunction): (ToolBarItem<MenuKeys> | ToolBarSeparator)[] => {
+export const appToolbarItems = (
+    mobile: boolean,
+    localize?: LocalizeFunction
+): (ToolBarItem<MenuKeys> | ToolBarSeparator)[] => {
     const result: (ToolBarItem<MenuKeys> | ToolBarSeparator)[] = [];
 
     // Only add menu button if on mobile

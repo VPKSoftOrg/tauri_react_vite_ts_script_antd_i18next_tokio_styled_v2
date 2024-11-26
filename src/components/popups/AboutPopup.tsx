@@ -138,7 +138,9 @@ SOFTWARE."
                     className="Popup-UpdateNotify" //
                 >
                     {shouldUpdate ? (
-                        <div className={classNames("Popup-UpdateNotify-text", "Popup-UpdateNotify-text-updates")}>{translate("newVersionAvailable")}</div>
+                        <div className={classNames("Popup-UpdateNotify-text", "Popup-UpdateNotify-text-updates")}>
+                            {translate("newVersionAvailable")}
+                        </div>
                     ) : (
                         <div className="Popup-UpdateNotify-text">{translate("versionUpToDate")}</div>
                     )}
@@ -146,10 +148,19 @@ SOFTWARE."
                     <div className="Popup-UpdateNotify-text">{`v.${manifest?.version ?? appVersion}`}</div>
                     <div>
                         <Tooltip title={translate("buttonRefresh")}>
-                            <Button className="Popup-UpdateNotify-button" icon={<ReloadOutlined />} onClick={reCheck}></Button>
+                            <Button
+                                className="Popup-UpdateNotify-button"
+                                icon={<ReloadOutlined />}
+                                onClick={reCheck}
+                            ></Button>
                         </Tooltip>
                         <Tooltip title={translate("updateButton")}>
-                            <Button className="Popup-UpdateNotify-button" icon={<DownloadOutlined />} onClick={update} disabled={!shouldUpdate}></Button>
+                            <Button
+                                className="Popup-UpdateNotify-button"
+                                icon={<DownloadOutlined />}
+                                onClick={update}
+                                disabled={!shouldUpdate}
+                            ></Button>
                         </Tooltip>
                         <Button className="Popup-UpdateNotify-button" onClick={manualDownloadClick}>
                             {translate("manualDownload")}

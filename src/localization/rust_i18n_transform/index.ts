@@ -33,7 +33,10 @@ for (const locale of locales) {
         const contents = readFileSync(path.join(sourceDir, locale, file), { encoding: "utf8" });
         const jsonContent = JSON.parse(contents);
         for (const [key, value] of Object.entries(jsonContent)) {
-            destinationLocale[`${path.parse(file).name}.${key}`] = (value as string).replaceAll(/({{)(.*?)(}})/g, "%{$2}");
+            destinationLocale[`${path.parse(file).name}.${key}`] = (value as string).replaceAll(
+                /({{)(.*?)(}})/g,
+                "%{$2}"
+            );
         }
     }
 

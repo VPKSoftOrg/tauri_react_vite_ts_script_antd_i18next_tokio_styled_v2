@@ -82,7 +82,11 @@ const useWindowStateSaverImplemented = (intervalMs: number) => {
 
     React.useEffect(() => {
         const interval = setInterval(() => {
-            if (stateSaverEnabled && intervalPassed.current !== true && Date.now() - currentTime.current.getTime() > intervalMs) {
+            if (
+                stateSaverEnabled &&
+                intervalPassed.current !== true &&
+                Date.now() - currentTime.current.getTime() > intervalMs
+            ) {
                 intervalPassed.current = true;
                 currentTime.current = new Date();
             }
@@ -124,6 +128,7 @@ const useWindowStateSaverEmpty = (_intervalMs: number) => {
 };
 
 // Android and iOS does not support window state saving
-const useWindowStateSaver = osType === "ios" || osType === "android" ? useWindowStateSaverEmpty : useWindowStateSaverImplemented;
+const useWindowStateSaver =
+    osType === "ios" || osType === "android" ? useWindowStateSaverEmpty : useWindowStateSaverImplemented;
 
 export { useWindowStateSaver };
