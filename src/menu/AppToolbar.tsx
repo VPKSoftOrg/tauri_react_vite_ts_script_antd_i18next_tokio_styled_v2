@@ -25,9 +25,9 @@ SOFTWARE.
 import * as React from "react";
 import { styled } from "styled-components";
 import classNames from "classnames";
-import { CommonProps } from "../components/Types";
+import type { CommonProps } from "../components/Types";
 import { TooltipObjectButton } from "../components/wrappers/TooltipObjectButton";
-import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/antd-constants";
+import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/AntdConstants";
 
 export type ToolBarItem<T> = {
     icon: React.ReactNode;

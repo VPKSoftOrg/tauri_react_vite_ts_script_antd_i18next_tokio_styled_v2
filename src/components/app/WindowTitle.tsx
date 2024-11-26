@@ -2,7 +2,7 @@ import * as React from "react";
 import { styled } from "styled-components";
 import classNames from "classnames";
 import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-import { CommonProps } from "../Types";
+import type { CommonProps } from "../Types";
 import { AppIcon } from "../../utilities/app/Images";
 
 type TitleColorConfig = {

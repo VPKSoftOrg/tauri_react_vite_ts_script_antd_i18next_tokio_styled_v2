@@ -25,12 +25,12 @@ SOFTWARE.
 import * as React from "react";
 import { styled } from "styled-components";
 import classNames from "classnames";
-import { CommonProps } from "../components/Types";
+import type { CommonProps } from "../components/Types";
 import { useTranslate } from "../localization/Localization";
-import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/antd-constants";
-import { AppMenu, MenuItems } from "./AppMenu";
+import { darkModeMenuBackground, lightModeMenuBackground } from "../utilities/app/AntdConstants";
+import { AppMenu, type MenuItems } from "./AppMenu";
 import { AppToolbar } from "./AppToolbar";
-import { MenuKeys } from "./MenuItems";
+import type { MenuKeys } from "./MenuItems";
 import { appToolbarItems } from "./ToolbarItems";
 
 /**

@@ -24,7 +24,7 @@ SOFTWARE.
 
 import * as React from "react";
 import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-import { EventCallback, TauriEvent } from "@tauri-apps/api/event";
+import { type EventCallback, TauriEvent } from "@tauri-apps/api/event";
 import { StateFlags, restoreStateCurrent, saveWindowState } from "@tauri-apps/plugin-window-state";
 import { type } from "@tauri-apps/plugin-os";
 
@@ -117,6 +117,7 @@ const useWindowStateSaverImplemented = (intervalMs: number) => {
 const useWindowStateSaverEmpty = (_intervalMs: number) => {
     const [stateSaverEnabled, setStateSaverEnabled] = React.useState(false);
 
+    // biome-ignore lint/suspicious/noEmptyBlockStatements: <explanation>
     const restoreState = React.useCallback(() => {}, []);
 
     return { stateSaverEnabled, setStateSaverEnabled, restoreState };

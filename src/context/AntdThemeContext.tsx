@@ -23,7 +23,7 @@ SOFTWARE.
 */
 
 import { type } from "@tauri-apps/plugin-os";
-import { ConfigProvider, GlobalToken, theme } from "antd";
+import { ConfigProvider, type GlobalToken, theme } from "antd";
 import * as React from "react";
 
 /**

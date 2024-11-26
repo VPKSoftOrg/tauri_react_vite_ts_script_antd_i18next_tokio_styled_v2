@@ -29,7 +29,7 @@ import { styled } from "styled-components";
 import { open } from "@tauri-apps/plugin-shell";
 import { Button, Modal, Tooltip } from "antd";
 import { ReloadOutlined, DownloadOutlined } from "@ant-design/icons";
-import { CommonProps } from "../Types";
+import type { CommonProps } from "../Types";
 import { useTranslate } from "../../localization/Localization";
 import { useNotify } from "../../utilities/app/Notify";
 import { GithubLogo, LogoImage } from "../../utilities/app/Images";

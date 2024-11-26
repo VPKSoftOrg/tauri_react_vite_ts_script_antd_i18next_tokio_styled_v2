@@ -24,7 +24,7 @@ SOFTWARE.
 
 import * as React from "react";
 import { invoke } from "@tauri-apps/api/core";
-import { Locales } from "../../localization/Localization";
+import type { Locales } from "../../localization/Localization";
 
 /**
  * The software settings returned by the Tauri app.

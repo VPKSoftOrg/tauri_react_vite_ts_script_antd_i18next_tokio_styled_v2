@@ -10,13 +10,13 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { StyledTitle } from "./components/app/WindowTitle";
 import { useTranslate } from "./localization/Localization";
-import { MenuKeys, appMenuItems } from "./menu/MenuItems";
+import { type MenuKeys, appMenuItems } from "./menu/MenuItems";
 import { AboutPopup } from "./components/popups/AboutPopup";
 import { PreferencesPopup } from "./components/popups/PreferencesPopup";
 import { useSettings } from "./utilities/app/Settings";
 import { useWindowStateSaver } from "./hooks/UseWindowStateListener";
 import { useAntdTheme, useAntdToken } from "./context/AntdThemeContext";
-import { CommonProps } from "./components/Types";
+import type { CommonProps } from "./components/Types";
 import { AppMenuToolbar } from "./menu/AppMenuToolbar";
 import { AppMenu } from "./menu/AppMenu";
 
@@ -66,7 +66,7 @@ const App = ({ className }: AppProps) => {
 
     React.useEffect(() => {
         void greet();
-    }, [greet, name]);
+    }, [greet]);
 
     const onClose = React.useCallback(() => {
         return false;

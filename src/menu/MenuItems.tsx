@@ -2,9 +2,9 @@
 import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile, faDoorOpen, faCircleQuestion, faInfo, faGear } from "@fortawesome/free-solid-svg-icons";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { LocalizeFunction } from "../localization/Localization";
-import { MenuItems } from "./AppMenu";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { LocalizeFunction } from "../localization/Localization";
+import type { MenuItems } from "./AppMenu";
 
 export const appMenuItems = (localize?: LocalizeFunction): MenuItems => [
     {

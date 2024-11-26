@@ -2,10 +2,10 @@
 import * as React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faDoorOpen, faGear, faInfo } from "@fortawesome/free-solid-svg-icons";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { LocalizeFunction } from "../localization/Localization";
-import { ToolBarItem, ToolBarSeparator } from "./AppToolbar";
-import { MenuKeys } from "./MenuItems";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import type { LocalizeFunction } from "../localization/Localization";
+import type { ToolBarItem, ToolBarSeparator } from "./AppToolbar";
+import type { MenuKeys } from "./MenuItems";
 
 export const appToolbarItems = (mobile: boolean, localize?: LocalizeFunction): (ToolBarItem<MenuKeys> | ToolBarSeparator)[] => {
     const result: (ToolBarItem<MenuKeys> | ToolBarSeparator)[] = [];

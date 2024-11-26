@@ -26,7 +26,7 @@ import * as React from "react";
 import { styled } from "styled-components";
 import classNames from "classnames";
 import { Button, Tooltip } from "antd";
-import { CommonProps } from "../Types";
+import type { CommonProps } from "../Types";
 
 /**
  * The props for the {@link TooltipObjectButton} component.

@@ -10,7 +10,7 @@
         "tauri": "tauri",
         "test-release": "tauri build -b none",
         "release": "tauri build",
-        "lint": "eslint --max-warnings=0 --config ./.eslintrc.cjs --ext .tsx,.ts ./src/"
+        "lint": "biome lint"
     },
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.7.1",
@@ -30,6 +30,7 @@
         "styled-components": "^6.1.13"
     },
     "devDependencies": {
+        "@biomejs/biome": "1.9.4",
         "@tauri-apps/cli": "^2.1.0",
         "@types/node": "^22.9.3",
         "@types/react": "^18.3.12",
@@ -38,17 +39,7 @@
         "@typescript-eslint/eslint-plugin": "^8.15.0",
         "@typescript-eslint/parser": "^8.15.0",
         "@vitejs/plugin-react": "^4.3.3",
-        "eslint": "^8.57.1",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-import": "^2.31.0",
-        "eslint-plugin-jsdoc": "^50.5.0",
-        "eslint-plugin-prefer-arrow-functions": "^3.4.1",
-        "eslint-plugin-prettier": "^5.2.1",
-        "eslint-plugin-react": "^7.37.2",
-        "eslint-plugin-react-hooks": "^5.0.0",
-        "eslint-plugin-unicorn": "^56.0.1",
         "internal-ip": "^8.0.0",
-        "prettier": "^3.3.3",
         "typescript": "^5.7.2",
         "vite": "^5.4.11"
     }

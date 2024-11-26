@@ -26,10 +26,10 @@ import * as React from "react";
 import classNames from "classnames";
 import { styled } from "styled-components";
 import { Button, Checkbox, Modal, Select } from "antd";
-import { CheckboxChangeEvent } from "antd/es/checkbox";
-import { Settings } from "../../utilities/app/Settings";
-import { CommonProps } from "../Types";
-import { Locales, LocalizeFunction, currentLocales } from "../../localization/Localization";
+import type { CheckboxChangeEvent } from "antd/es/checkbox";
+import type { Settings } from "../../utilities/app/Settings";
+import type { CommonProps } from "../Types";
+import { type Locales, type LocalizeFunction, currentLocales } from "../../localization/Localization";
 
 /**
  * The props for the {@link PreferencesPopup} component.
