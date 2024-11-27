@@ -143,5 +143,14 @@
             "trailingCommas": "es5",
             "lineEnding": "lf"
         }
+    },
+    "json": {
+        "formatter": {
+            "lineEnding": "lf",
+            "enabled": true,
+            "indentStyle": "space",
+            "indentWidth": 4,
+            "trailingCommas": "none"
+        }
     }
 }
