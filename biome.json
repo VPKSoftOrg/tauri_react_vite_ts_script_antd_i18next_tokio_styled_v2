@@ -12,7 +12,8 @@
 		],
 		"ignoreUnknown": false,
 		"ignore": [
-			"vite-env.d.ts"
+			"vite-env.d.ts",
+			"biome.json"
 		]
 	},
 	"formatter": {
