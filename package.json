@@ -10,7 +10,7 @@
         "tauri": "tauri",
         "test-release": "tauri build -b none",
         "release": "tauri build",
-        "lint": "biome lint"
+        "lint": "biome lint && biome format && biome check"
     },
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.7.1",
