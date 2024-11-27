@@ -1,9 +1,9 @@
+import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
+import classNames from "classnames";
 import * as React from "react";
 import { styled } from "styled-components";
-import classNames from "classnames";
-import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-import { CommonProps } from "../Types";
 import { AppIcon } from "../../utilities/app/Images";
+import type { CommonProps } from "../Types";
 
 type TitleColorConfig = {
     titleBackground: string;
@@ -115,10 +115,14 @@ const WindowTitle = ({
             </div>
             <div className="titlebar-buttonContainer">
                 <div className="titlebar-button" id="titlebar-minimize" onClick={minimizeClick} title={minimizeTitle}>
-                    {windowMinimize(darkMode ? colorConfigDark.minimizeButtonColor : colorConfigLight.minimizeButtonColor)}
+                    {windowMinimize(
+                        darkMode ? colorConfigDark.minimizeButtonColor : colorConfigLight.minimizeButtonColor
+                    )}
                 </div>
                 <div className="titlebar-button" id="titlebar-maximize" onClick={maximizeClick} title={maximizeTitle}>
-                    {windowMaximize(darkMode ? colorConfigDark.maximizeButtonColor : colorConfigLight.maximizeButtonColor)}
+                    {windowMaximize(
+                        darkMode ? colorConfigDark.maximizeButtonColor : colorConfigLight.maximizeButtonColor
+                    )}
                 </div>
                 <div className="titlebar-button" id="titlebar-close" onClick={closeClick} title={closeTitle}>
                     {window_close(darkMode ? colorConfigDark.closeButtonColor : colorConfigLight.closeButtonColor)}

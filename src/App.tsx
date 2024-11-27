@@ -1,24 +1,24 @@
-import * as React from "react";
-import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
+import { type } from "@tauri-apps/plugin-os";
 import { exit } from "@tauri-apps/plugin-process";
-import { styled } from "styled-components";
 import { Button, Drawer, Form, Input } from "antd";
 import classNames from "classnames";
-import { type } from "@tauri-apps/plugin-os";
+import * as React from "react";
+import { useState } from "react";
+import { styled } from "styled-components";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import type { CommonProps } from "./components/Types";
 import { StyledTitle } from "./components/app/WindowTitle";
-import { useTranslate } from "./localization/Localization";
-import { MenuKeys, appMenuItems } from "./menu/MenuItems";
 import { AboutPopup } from "./components/popups/AboutPopup";
 import { PreferencesPopup } from "./components/popups/PreferencesPopup";
-import { useSettings } from "./utilities/app/Settings";
-import { useWindowStateSaver } from "./hooks/UseWindowStateListener";
 import { useAntdTheme, useAntdToken } from "./context/AntdThemeContext";
-import { CommonProps } from "./components/Types";
-import { AppMenuToolbar } from "./menu/AppMenuToolbar";
+import { useWindowStateSaver } from "./hooks/UseWindowStateListener";
+import { useTranslate } from "./localization/Localization";
 import { AppMenu } from "./menu/AppMenu";
+import { AppMenuToolbar } from "./menu/AppMenuToolbar";
+import { type MenuKeys, appMenuItems } from "./menu/MenuItems";
+import { useSettings } from "./utilities/app/Settings";
 
 type AppProps = CommonProps;
 const osType = type();
@@ -66,7 +66,7 @@ const App = ({ className }: AppProps) => {
 
     React.useEffect(() => {
         void greet();
-    }, [greet, name]);
+    }, [greet]);
 
     const onClose = React.useCallback(() => {
         return false;

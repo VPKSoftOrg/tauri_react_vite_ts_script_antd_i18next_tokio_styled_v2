@@ -2,9 +2,9 @@
 
 // A script to transform i18n json files to Rust rust-i18n crate supported format.
 
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { readdir } from "node:fs/promises";
 import path from "node:path";
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { program } from "commander";
 
 program
@@ -33,7 +33,10 @@ for (const locale of locales) {
         const contents = readFileSync(path.join(sourceDir, locale, file), { encoding: "utf8" });
         const jsonContent = JSON.parse(contents);
         for (const [key, value] of Object.entries(jsonContent)) {
-            destinationLocale[`${path.parse(file).name}.${key}`] = (value as string).replaceAll(/({{)(.*?)(}})/g, "%{$2}");
+            destinationLocale[`${path.parse(file).name}.${key}`] = (value as string).replaceAll(
+                /({{)(.*?)(}})/g,
+                "%{$2}"
+            );
         }
     }
 

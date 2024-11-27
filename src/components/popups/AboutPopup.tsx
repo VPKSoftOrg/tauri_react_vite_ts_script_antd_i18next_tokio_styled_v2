@@ -22,18 +22,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import * as React from "react";
-import classNames from "classnames";
+import { DownloadOutlined, ReloadOutlined } from "@ant-design/icons";
 import { getName, getVersion } from "@tauri-apps/api/app";
-import { styled } from "styled-components";
 import { open } from "@tauri-apps/plugin-shell";
 import { Button, Modal, Tooltip } from "antd";
-import { ReloadOutlined, DownloadOutlined } from "@ant-design/icons";
-import { CommonProps } from "../Types";
-import { useTranslate } from "../../localization/Localization";
-import { useNotify } from "../../utilities/app/Notify";
-import { GithubLogo, LogoImage } from "../../utilities/app/Images";
+import classNames from "classnames";
+import * as React from "react";
+import { styled } from "styled-components";
 import { useTauriUpdater } from "../../hooks/UseTauriUpdater";
+import { useTranslate } from "../../localization/Localization";
+import { GithubLogo, LogoImage } from "../../utilities/app/Images";
+import { useNotify } from "../../utilities/app/Notify";
+import type { CommonProps } from "../Types";
 
 /**
  * The props for the {@link AboutPopup} component.
@@ -138,7 +138,9 @@ SOFTWARE."
                     className="Popup-UpdateNotify" //
                 >
                     {shouldUpdate ? (
-                        <div className={classNames("Popup-UpdateNotify-text", "Popup-UpdateNotify-text-updates")}>{translate("newVersionAvailable")}</div>
+                        <div className={classNames("Popup-UpdateNotify-text", "Popup-UpdateNotify-text-updates")}>
+                            {translate("newVersionAvailable")}
+                        </div>
                     ) : (
                         <div className="Popup-UpdateNotify-text">{translate("versionUpToDate")}</div>
                     )}
@@ -146,10 +148,19 @@ SOFTWARE."
                     <div className="Popup-UpdateNotify-text">{`v.${manifest?.version ?? appVersion}`}</div>
                     <div>
                         <Tooltip title={translate("buttonRefresh")}>
-                            <Button className="Popup-UpdateNotify-button" icon={<ReloadOutlined />} onClick={reCheck}></Button>
+                            <Button
+                                className="Popup-UpdateNotify-button"
+                                icon={<ReloadOutlined />}
+                                onClick={reCheck}
+                            ></Button>
                         </Tooltip>
                         <Tooltip title={translate("updateButton")}>
-                            <Button className="Popup-UpdateNotify-button" icon={<DownloadOutlined />} onClick={update} disabled={!shouldUpdate}></Button>
+                            <Button
+                                className="Popup-UpdateNotify-button"
+                                icon={<DownloadOutlined />}
+                                onClick={update}
+                                disabled={!shouldUpdate}
+                            ></Button>
                         </Tooltip>
                         <Button className="Popup-UpdateNotify-button" onClick={manualDownloadClick}>
                             {translate("manualDownload")}

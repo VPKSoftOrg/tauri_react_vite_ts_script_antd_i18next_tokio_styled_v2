@@ -2,12 +2,12 @@ import * as i18next from "i18next";
 import * as React from "react";
 import { initReactI18next, useTranslation } from "react-i18next";
 
-import uiEnglish from "../localization/en/ui.json";
 import messagesEnglish from "../localization/en/messages.json";
 import settingsEnglish from "../localization/en/settings.json";
-import uiFinnish from "../localization/fi/ui.json";
+import uiEnglish from "../localization/en/ui.json";
 import messagesFinnish from "../localization/fi/messages.json";
 import settingsFinnish from "../localization/fi/settings.json";
+import uiFinnish from "../localization/fi/ui.json";
 
 const localizationResources = {
     en: {
@@ -43,7 +43,12 @@ void i18next.use(initReactI18next).init({
  * @param {object?} params The interpolation parameters for the localization function. E.g. `{ interpolationName: interpolationValue }`.
  * @param {boolean?} escapeValue A value indicating whether the special characters should be escaped with interpolation. The default value is `true`.
  */
-export type LocalizeFunction = (entryName: LocalizationNames, defaultValue?: string, params?: unknown, escapeValue?: boolean) => string;
+export type LocalizeFunction = (
+    entryName: LocalizationNames,
+    defaultValue?: string,
+    params?: unknown,
+    escapeValue?: boolean
+) => string;
 
 export const useTranslate = () => {
     const { t, i18n } = useTranslation(resourceArray);
