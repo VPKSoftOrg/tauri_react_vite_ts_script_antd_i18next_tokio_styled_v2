@@ -19,11 +19,11 @@ tauri = { version = "=2.1.1", features = [] }
 tauri-plugin-shell = "2.2.0"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-tokio = { version = "1.42.0", features = ["full"] }
+tokio = { version = "1.43.0", features = ["full"] }
 tauri-plugin-process = "2.2.0"
-tauri-plugin-updater = "2.3.0"
+tauri-plugin-updater = "2.3.1"
 serde_derive = "1.0.215"
 tauri-plugin-os = "2.2.0"
 
 [target."cfg(not(any(target_os = \"android\", target_os = \"ios\")))".dependencies]
-tauri-plugin-window-state = "=2.2.0"
+tauri-plugin-window-state = "=2.2.1"
