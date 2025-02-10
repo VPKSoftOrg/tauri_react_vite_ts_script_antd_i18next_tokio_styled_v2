@@ -21,7 +21,7 @@ serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tokio = { version = "1.43.0", features = ["full"] }
 tauri-plugin-process = "2.2.0"
-tauri-plugin-updater = "2.4.0"
+tauri-plugin-updater = "2.5.0"
 serde_derive = "1.0.215"
 tauri-plugin-os = "2.2.0"
 
